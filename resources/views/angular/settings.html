@@ -1,0 +1,53 @@
+<style type="text/css">
+  .dataTables_length{
+    margin-top: 10px;
+  }
+</style>
+<div class="">
+  <!--Start leads inner-menu seaction-->
+  <div class="page-inner-menu">
+    <ul class="list-inline list-unstyle ">
+      <li ng-class="{'active': isActive(['/classified'])}">
+        <a href="manage/classified">DASHBOARD > SETTINGS </a>
+      </li>
+    </ul>
+  </div>
+  <!--End leads inner-menu seaction-->
+  <div class="clearfix"></div>
+  <!--Start Active lead seaction-->
+  <div class="row">
+    <div class="col-sm-12 margin-top-20">
+      <div class="portlet light bordered content-filter">
+        <div class="portlet-title">
+          <div class="caption">
+            <span class="caption-subject bold uppercase ">
+              SETTINGS
+            </span>
+          </div>
+        </div>
+        <div class="portlet-body">
+        	<div class="row">
+           <form class="form form-horizontal" method="post" id="settings-form">
+            <div class="form-body">
+              <div class="form-group form-md-line-input form-md-floating-label" ng-repeat="set in adminSettings">
+                  <label class="col-md-3 control-label">[[set.keyword]] :</label>
+                  <div class="col-md-3">
+                    <input type="text" class="form-control spinner" name="input[1]" placeholder="[[set.keyword]]" value="[[set.value]]" required> 
+                  </div>
+              </div>
+            </div>
+              <div class="form-actions">
+                  <div class="row">
+                      <div class="col-md-offset-3 col-md-9">
+                          <button type="submit" class="btn green">Update</button>
+                          <button type="button" class="btn default">Cancel</button>
+                      </div>
+                  </div>
+              </div>
+           </form> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

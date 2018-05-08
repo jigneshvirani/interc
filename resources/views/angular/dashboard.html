@@ -1,0 +1,146 @@
+                    <!-- BEGIN PAGE HEAD-->
+                    <div class="page-head">
+                        <!-- BEGIN PAGE TITLE -->
+                        <div class="page-title text-success">
+                            <h1> Dashboard
+                                <small>statistics, charts, recent events and reports</small>
+                            </h1>
+                        </div>
+                        <!-- END PAGE TITLE -->
+                    </div>
+                    <!-- END PAGE HEAD-->
+                    <!-- BEGIN PAGE BREADCRUMB -->
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <a href="index.html">Home</a>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                    </ul>
+                    <!-- END PAGE BREADCRUMB -->
+                    <!-- BEGIN PAGE BASE CONTENT -->
+                    <!-- BEGIN DASHBOARD STATS 1-->
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
+                                <div class="visual">
+                                    <i class="fa fa-users"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        <span data-counter="counterup" data-value="1349">[[dashboardState.total_users]]</span>
+                                    </div>
+                                    <div class="desc"> Total users </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a class="dashboard-stat dashboard-stat-v2 red" href="#">
+                                <div class="visual">
+                                    <i class="fa fa-suitcase"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        <span data-counter="counterup" data-value="12,5">[[dashboardState.total_product]]</span></div>
+                                    <div class="desc"> Total Products </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a class="dashboard-stat dashboard-stat-v2 green" href="#">
+                                <div class="visual">
+                                    <i class="fa fa-barcode"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        <span data-counter="counterup" data-value="549">[[dashboardState.total_scan]]</span>
+                                    </div>
+                                    <div class="desc"> Total scans </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a class="dashboard-stat dashboard-stat-v2 purple" href="#">
+                                <div class="visual">
+                                    <i class="fa fa-barcode"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        <span data-counter="counterup"></span>[[dashboardState.total_scan_month]]</div>
+                                    <div class="desc"> Total scans this month </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                     <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a class="dashboard-stat dashboard-stat-v2 grey-cascade" href="#">
+                                <div class="visual">
+                                    <i class="fa fa-cogs"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        <span data-counter="counterup">[[dashboardState.bias]]</span>
+                                    </div>
+                                    <div class="desc"> Current Bias </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a class="dashboard-stat dashboard-stat-v2 blue-steel" href="#">
+                                <div class="visual">
+                                    <i class="fa fa-bullhorn"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        <span data-counter="counterup">[[dashboardState.ratings]]</span>
+                                    </div>
+                                    <div class="desc"> Feedback average </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- another dashboard states -->
+                    <div class="clearfix"></div>
+                     <div class="row">
+                        <div class="col-lg-6 col-xs-12 col-sm-12">
+                            <!-- BEGIN PORTLET-->
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-bar-chart font-dark hide"></i>
+                                        <span class="caption-subject font-dark bold uppercase">Monthly Users</span>
+                                        <span class="caption-helper">Monthly joined users...</span>
+                                    </div>
+                                    <div class="actions">
+                                       
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                   <div id="site_statistics_content">
+                                        <div id="chartdiv" class="chart"> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END PORTLET-->
+                        </div>
+                        <div class="col-lg-6 col-xs-12 col-sm-12">
+                             <!-- BEGIN PORTLET-->
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-bar-chart font-dark hide"></i>
+                                        <span class="caption-subject font-dark bold uppercase">Monthly Scans</span>
+                                        <span class="caption-helper">Monthly scanned products...</span>
+                                    </div>
+                                    <div class="actions">
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                   <div id="site_statistics_content">
+                                        <div id="chartdiv2" class="chart"> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END PORTLET-->
+                        </div>
+                    </div>

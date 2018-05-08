@@ -1,0 +1,224 @@
+<style type="text/css">
+  .dataTables_length{
+    margin-top: 10px;
+  }
+</style>
+<div class="">
+  <!--Start leads inner-menu seaction-->
+  <div class="page-inner-menu">
+    <ul class="list-inline list-unstyle ">
+      <li ng-class="{'active': isActive(['/dashboard'])}">
+        <a href="manage/classified">DASHBOARD >  PRODUCTS WEIGHT </a>
+      </li>
+    </ul>
+  </div>
+  <!--End leads inner-menu seaction-->
+  <div class="clearfix"></div>
+  <!--Start Active lead seaction-->
+  <div class="row">
+    <div class="col-sm-12 margin-top-20">
+      <div class="portlet light bordered content-filter">
+       <div class="portlet-body">
+        	 <div class="row">
+              <div class="col-md-12">
+                  <div class="portlet box">
+                                                <div class="portlet-title bg-green-turquoise bold uppercase">
+                                                    <div class="caption"> PRODUCTS WEIGHT </div>
+                                                    <ul class="nav nav-tabs">
+                                                        <li class="active">
+                                                            <a href="#portlet_tab_1" class="mylink" data-toggle="tab" aria-expanded="true"> Hair Style </a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="#portlet_tab_2" class="mylink" data-toggle="tab" aria-expanded="false">Chemical </a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="#portlet_tab_3" class="mylink" data-toggle="tab" aria-expanded="false"> Texture </a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="#portlet_tab_4" class="mylink" data-toggle="tab" aria-expanded="false"> ingredients </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="portlet-body">
+                                                    <div class="tab-content">
+                                                        <div class="tab-pane active" id="portlet_tab_1">
+                                                            <div class="row">
+                                                              <div class="col-md-12">
+                                                                <form class="form form-horizontal" method="post" id="product-form1">
+                                                                    <input type="hidden" name="type" value="hair">
+                                                                    <div class="form-body">
+                                                                      <div class="form-group form-md-line-input form-md-floating-label">
+                                                                          <label class="col-md-3 control-label">HEAT :</label>
+                                                                            <div class="col-md-4">
+                                                                                  <input type="number" class="form-control spinner" name="input[1]" placeholder="Heat" value="[[productInfo.hair_Style[0].weight]]" required="required">
+                                                                            </div>
+                                                                      </div>
+                                                                      <div class="form-group form-md-line-input form-md-floating-label">
+                                                                          <label class="col-md-3 control-label">AIR :</label>
+                                                                            <div class="col-md-4">
+                                                                                  <input type="number" class="form-control spinner" name="input[2]" placeholder="Air" value="[[productInfo.hair_Style[1].weight]]" required="required">
+                                                                            </div>
+                                                                      </div>
+                                                                    </div>
+                                                                    <div class="form-actions">
+                                                                            <div class="row">
+                                                                                <div class="col-md-offset-3 col-md-9">
+                                                                                    <button type="submit" class="btn green">update</button>
+                                                                                    <button type="button" class="btn default">Cancel</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                  </form>
+                                                              </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Chemical starts here -->
+                                                        <div class="tab-pane" id="portlet_tab_2">
+                                                            <div class="row">
+                                                              <div class="col-md-12">
+                                                                <form class="form form-horizontal" method="post" id="product-form2">
+                                                                    <input type="hidden" name="type" value="chemical">
+                                                                    <div class="form-body">
+                                                                      <div class="form-group form-md-line-input form-md-floating-label">
+                                                                          <label class="col-md-3 control-label">None :</label>
+                                                                            <div class="col-md-4">
+                                                                                  <input type="number" class="form-control spinner" name="input[1]" placeholder="Heat" value="[[productInfo.chemical[0].weight]]" required="required">
+                                                                            </div>
+                                                                      </div>
+                                                                      <div class="form-group form-md-line-input form-md-floating-label">
+                                                                          <label class="col-md-3 control-label">Color :</label>
+                                                                            <div class="col-md-4">
+                                                                                  <input type="number" class="form-control spinner" name="input[2]" placeholder="Air" value="[[productInfo.chemical[1].weight]]" required="required">
+                                                                            </div>
+                                                                      </div>
+                                                                      <div class="form-group form-md-line-input form-md-floating-label">
+                                                                          <label class="col-md-3 control-label">Relaxer, Texturizer, or Perm :</label>
+                                                                            <div class="col-md-4">
+                                                                                  <input type="number" class="form-control spinner" name="input[3]" placeholder="Relaxer, Texturizer, or Perm" value="[[productInfo.chemical[2].weight]]" required="required">
+                                                                            </div>
+                                                                      </div>
+                                                                      <div class="form-group form-md-line-input form-md-floating-label">
+                                                                          <label class="col-md-3 control-label">Smoothing treatment :</label>
+                                                                            <div class="col-md-4">
+                                                                                  <input type="number" class="form-control spinner" name="input[4]" placeholder="Smoothing treatment" value="[[productInfo.chemical[3].weight]]" required="required">
+                                                                            </div>
+                                                                      </div>
+                                                                    </div>
+                                                                    <div class="form-actions">
+                                                                            <div class="row">
+                                                                                <div class="col-md-offset-3 col-md-9">
+                                                                                    <button type="submit" class="btn green">update</button>
+                                                                                    <button type="button" class="btn default">Cancel</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                  </form>
+                                                              </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Chemical ends here -->
+
+                                                        <!-- Texture starts here -->
+                                                        <div class="tab-pane" id="portlet_tab_3">
+                                                           <div class="row">
+                                                              <div class="col-md-12">
+                                                                <form class="form form-horizontal" method="post" id="product-form3">
+                                                                    <input type="hidden" name="type" value="texture">
+                                                                    <div class="form-body">
+                                                                      <div class="form-group form-md-line-input form-md-floating-label">
+                                                                          <label class="col-md-3 control-label">Straight :</label>
+                                                                            <div class="col-md-4">
+                                                                                  <input type="number" class="form-control spinner" name="input[1]" placeholder="Straight" value="[[productInfo.texture[0].weight]]" required="required">
+                                                                            </div>
+                                                                      </div>
+                                                                      <div class="form-group form-md-line-input form-md-floating-label">
+                                                                          <label class="col-md-3 control-label">Wavy :</label>
+                                                                            <div class="col-md-4">
+                                                                                  <input type="number" class="form-control spinner" name="input[2]" placeholder="Wavy" value="[[productInfo.texture[1].weight]]" required="required">
+                                                                            </div>
+                                                                      </div>
+                                                                      <div class="form-group form-md-line-input form-md-floating-label">
+                                                                          <label class="col-md-3 control-label">Curly :</label>
+                                                                            <div class="col-md-4">
+                                                                                  <input type="number" class="form-control spinner" name="input[3]" placeholder="Curly" value="[[productInfo.texture[2].weight]]" required="required">
+                                                                            </div>
+                                                                      </div>
+                                                                      <div class="form-group form-md-line-input form-md-floating-label">
+                                                                          <label class="col-md-3 control-label">Very curly :</label>
+                                                                            <div class="col-md-4">
+                                                                                  <input type="number" class="form-control spinner" name="input[4]" placeholder="Very curly" value="[[productInfo.texture[3].weight]]" required="required">
+                                                                            </div>
+                                                                      </div>
+                                                                      <div class="form-group form-md-line-input form-md-floating-label">
+                                                                          <label class="col-md-3 control-label">Tight curly :</label>
+                                                                            <div class="col-md-4">
+                                                                                  <input type="number" class="form-control spinner" name="input[5]" placeholder="Tight curly" value="[[productInfo.texture[4].weight]]" required="required">
+                                                                            </div>
+                                                                      </div>
+                                                                      <div class="form-group form-md-line-input form-md-floating-label">
+                                                                          <label class="col-md-3 control-label">Coily :</label>
+                                                                            <div class="col-md-4">
+                                                                                  <input type="number" class="form-control spinner" name="input[6]" placeholder="Coily" value="[[productInfo.texture[5].weight]]" required="required">
+                                                                            </div>
+                                                                      </div>
+                                                                    </div>
+                                                                    <div class="form-actions">
+                                                                            <div class="row">
+                                                                                <div class="col-md-offset-3 col-md-9">
+                                                                                    <button type="submit" class="btn green">update</button>
+                                                                                    <button type="button" class="btn default">Cancel</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                  </form>
+                                                              </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Texture ends here -->
+
+                                                        <!-- Ingrendients -->
+                                                         <div class="tab-pane" id="portlet_tab_4">
+                                                            <div class="row">
+                                                              <div class="col-md-12">
+                                                                <form class="form form-horizontal" method="post" id="product-form4">
+                                                                    <input type="hidden" name="type" value="ingredients">
+                                                                    <div class="form-body">
+                                                                      <div class="form-group form-md-line-input form-md-floating-label">
+                                                                          <label class="col-md-3 control-label">Perfectionist :</label>
+                                                                            <div class="col-md-4">
+                                                                                  <input type="number" class="form-control spinner" name="input[1]" placeholder="Perfectionist" value="[[productInfo.ingredients[0].weight]]">
+                                                                            </div>
+                                                                      </div>
+                                                                      <div class="form-group form-md-line-input form-md-floating-label">
+                                                                          <label class="col-md-3 control-label">Investigator :</label>
+                                                                            <div class="col-md-4">
+                                                                                  <input type="number" class="form-control spinner" name="input[2]" placeholder="Investigator" value="[[productInfo.ingredients[1].weight]]">
+                                                                            </div>
+                                                                      </div>
+                                                                    </div>
+                                                                    <div class="form-actions">
+                                                                            <div class="row">
+                                                                                <div class="col-md-offset-3 col-md-9">
+                                                                                    <button type="submit" class="btn green">update</button>
+                                                                                    <button type="button" class="btn default">Cancel</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                  </form>
+                                                              </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Ingrendients ends here -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+              </div>
+              
+           </div>
+           <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

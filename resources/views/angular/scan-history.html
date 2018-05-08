@@ -1,0 +1,52 @@
+<style type="text/css">
+  .dataTables_length{
+    margin-top: 10px;
+  }
+  .result-class{ 
+   /* padding-left: 12px !important; */
+  }
+</style>
+<div class="">
+  <!--Start leads inner-menu seaction-->
+  <div class="page-inner-menu">
+    <ul class="list-inline list-unstyle ">
+      <li ng-class="{'active': isActive(['/classified'])}">
+        <a href="manage/classified">DASHBOARD > USERS > SCAN HISTORY </a>
+      </li>
+    </ul>
+  </div>
+  <!--End leads inner-menu seaction-->
+  <div class="clearfix"></div>
+  <!--Start Active lead seaction-->
+  <div class="row">
+    <div class="col-sm-12 margin-top-20">
+      <div class="portlet light bordered content-filter">
+        <div class="portlet-title">
+          <div class="caption">
+            <span class="caption-subject bold uppercase ">
+              USERS SCAN HISTORY
+            </span>
+          </div>
+        </div>
+        <div class="portlet-body">
+        	<div class="table-responsive">
+                <table class="table table-striped table-hover table-checkable order-column" id="event_listing">
+                      <thead>
+                        <tr>
+                            <th>Id </th>
+                            <th>Product Name </th>
+                            <th class="result-class">Result</th>
+                            <th>Attributes</th>
+                            <th>Scanned at</th>
+                          <!--   <th>Action</th> -->
+                            </tr>
+                        </thead>
+                      <tbody>
+                      </tbody>
+                  </table>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

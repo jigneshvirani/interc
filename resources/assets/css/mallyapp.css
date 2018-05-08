@@ -1,0 +1,83 @@
+:root {
+    --leadleval-color: #e4e3fc;
+    --textgray-reguler: #798ea5;
+    --textorange: #f79d29;
+    --back-orange: #f79d29;
+    --text-green: #6cc480;
+    --back-green: #6cc480;
+    --back-white: #fff;
+    --purple-light: #b80007;
+    --border-light-grey: #d8d8d8;
+    --back-turquoise-blue:#55c0d3;
+}
+@font-face {
+    font-family: axiforma-SemiBold;
+    src: url(fonts/axiforma-SemiBold.otf);
+}
+@font-face {
+    font-family: axiforma-Regular;
+    src: url(fonts/axiforma-Regular.otf);
+}
+@font-face {
+    font-family: axiforma-Medium;
+    src: url(fonts/axiforma-Medium.otf);
+}
+@font-face {
+    font-family: axiforma-Book;
+    src: url(fonts/axiforma-Book.otf);
+}
+@font-face {
+    font-family: axiforma-Bold;
+    src: url(fonts/axiforma-Bold.otf);
+}
+
+
+.axiforma-SemiBold {
+    font-family: axiforma-SemiBold, 'sans-serif';
+}
+.axiforma-Regular {
+    font-family: axiforma-Regular, 'sans-serif';
+}
+.axiforma-Medium {
+    font-family: axiforma-Medium, 'sans-serif';
+}
+.axiforma-Book {
+    font-family: axiforma-Book, 'sans-serif';
+}
+.axiforma-Bold {
+    font-family: axiforma-Bold, 'sans-serif';
+}
+body {
+    background: #fff;
+    font-size: 13px;
+}
+body{ color: var(--textgray-reguler) !important;
+    font-family: 'axiforma-Book' !important;}
+/*End Font calss css*/
+
+.navbar-fixed-top{
+	border-bottom: 1px solid #b80007;
+    padding-top: 10px;
+}.
+.logo-top-margin{
+	margin-bottom: 10px !important;
+}
+.left-padding-10{
+	margin-left: 10px;
+}
+.content-center{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-fixed-top{
+	background-color: #b80007;
+}
+
+.input-circle {border-radius: 2px !important;}
+
+.link-class{
+    padding: 30px 10px 30px 10px !important;
+    margin-top: 10px;
+    min-width: 150px;
+}

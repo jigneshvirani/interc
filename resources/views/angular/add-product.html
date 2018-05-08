@@ -1,0 +1,140 @@
+<style type="text/css">
+  .dataTables_length{
+    margin-top: 10px;
+  }
+</style>
+<div class="">
+  <!--Start leads inner-menu seaction-->
+  <div class="page-inner-menu">
+    <ul class="list-inline list-unstyle ">
+      <li ng-class="{'active': isActive(['/classified'])}">
+        <a href="manage/classified">DASHBOARD > PRODUCTS > ADD PRODUCT </a>
+      </li>
+    </ul>
+  </div>
+  <!--End leads inner-menu seaction-->
+  <div class="clearfix"></div>
+  <!--Start Active lead seaction-->
+  <div class="row">
+    <div class="col-sm-12 margin-top-20">
+      <div class="portlet light bordered content-filter">
+        <div class="portlet-title">
+          <div class="caption">
+            <span class="caption-subject bold uppercase ">
+              ADD PRODUCT
+            </span>
+          </div>
+        </div>
+        <div class="portlet-body">
+        	<div class="row">
+           <form class="form form-horizontal" method="post" id="product-form">
+            <div class="form-body">
+              <div class="form-group form-md-line-input form-md-floating-label">
+                  <label class="col-md-3 control-label">NAME :</label>
+                      <div class="col-md-4">
+                      <input type="text" class="form-control spinner" name="name" placeholder="Name"> </div>
+              </div>
+              <div class="form-group form-md-line-input">
+                  <label class="col-md-3 control-label">UPC CODE :</label>
+                      <div class="col-md-4">
+                      <input type="text" class="form-control spinner" name="upc_code" placeholder="UPC code"> </div>
+              </div>
+              <div class="form-group">
+                    <label class="control-label col-md-3">PICTURE :</label>
+                        <div class="col-md-9">
+                          <div class="fileinput fileinput-new" data-provides="fileinput">
+                              <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                  <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""> </div>
+                                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-height: 250px; line-height: 10px;">
+                                    </div>
+                                <div>
+                                <span class="btn default btn-file">
+                                  <span class="fileinput-new"> Select image </span>
+                                  <span class="fileinput-exists"> Change </span>
+                                  <input type="hidden" value="" name="..."><input type="file" name="file" accept="image/*"> </span>
+                                  <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput" style=""> Remove </a>
+                                </div>
+                          </div>
+                        </div>
+              </div>
+              <div class="form-group form-md-line-input">
+                  <!-- <label class="col-md-3 control-label">HAIR STYLE:</label>
+                      <div class="col-md-4">
+                          <SELECT class="form-control select2-multiple" multiple="multiple" tabindex="-1" aria-hidden="true" name="hair_style[]">
+                              <option ng-repeat="hs in proAttributes.hair_Style" value="[[hs.id]]">[[hs.name]]</option>
+                          </SELECT>
+                      </div> -->
+                      <label class="col-md-3 control-label">HAIR STYLE:</label>
+                      <div class="col-md-4">
+                        <div class="md-checkbox-list">
+                          <div class="md-checkbox" ng-repeat="hs in proAttributes.hair_Style track by $index">
+                              <input type="checkbox" id="hair_[[$index + 1]]" class="md-check" name="hair_style[]" value="[[hs.id]]">
+                                <label for="hair_[[$index + 1]]"><span class="inc"></span><span class="check"></span> <span class="box"></span> [[hs.name]] </label>
+                          </div>
+                        </div>
+                    </div>
+              </div>
+              <div class="form-group form-md-line-input">
+                  <label class="col-md-3 control-label">CHEMICALS:</label>
+                      <!-- <div class="col-md-4">
+                          <SELECT class="form-control select2-multiple" name="chemical[]" multiple="multiple" tabindex="-1" aria-hidden="true">
+                              <option ng-repeat="chem in proAttributes.chemical" value="[[chem.id]]">[[chem.name]]</option>
+                          </SELECT>
+                      </div> -->
+                     <div class="col-md-4">
+                        <div class="md-checkbox-list">
+                          <div class="md-checkbox" ng-repeat="chem in proAttributes.chemical track by $index">
+                              <input type="checkbox" id="chem_[[$index + 1]]" class="md-check" name="chemical[]" value="[[chem.id]]">
+                                <label for="chem_[[$index + 1]]"><span class="inc"></span><span class="check"></span> <span class="box"></span> [[chem.name]] </label>
+                          </div>
+                        </div>
+                    </div>
+              </div>
+              <div class="form-group form-md-line-input">
+                  <label class="col-md-3 control-label">TEXTURE:</label>
+                    <!-- <div class="col-md-4">
+                          <SELECT class="form-control select2-multiple" name="texture[]" multiple="multiple" tabindex="-1" aria-hidden="true">
+                                <option ng-repeat="text in proAttributes.texture" value="[[text.id]]">[[text.name]]</option>
+                          </SELECT>
+                    </div> -->
+                    <div class="col-md-4">
+                        <div class="md-checkbox-list">
+                          <div class="md-checkbox" ng-repeat="text in proAttributes.texture track by $index">
+                              <input type="checkbox" id="text_[[$index + 1]]" class="md-check" name="texture[]" value="[[text.id]]">
+                                <label for="text_[[$index + 1]]"><span class="inc"></span><span class="check"></span> <span class="box"></span> [[text.name]] </label>
+                          </div>
+                        </div>
+                    </div>
+              </div>
+              <div class="form-group form-md-line-input">
+                  <label class="col-md-3 control-label">INGRENDIENTS:</label>
+                      <!-- <div class="col-md-4">
+                          <SELECT class="form-control select2-multiple" name="ingredients[]" multiple="multiple" tabindex="-1" aria-hidden="true">
+                              <option ng-repeat="inte in proAttributes.ingredients" value="[[inte.id]]">[[inte.name]]</option>
+                          </SELECT>
+                      </div> -->
+                    <div class="col-md-4">
+                        <div class="md-checkbox-list">
+                          <div class="md-checkbox" ng-repeat="inte in proAttributes.ingredients track by $index">
+                              <input type="checkbox" id="inte_[[$index + 1]]" class="md-check" name="ingredients[]" value="[[inte.id]]">
+                                <label for="inte_[[$index + 1]]"><span class="inc"></span><span class="check"></span> <span class="box"></span> [[inte.name]] </label>
+                          </div>
+                        </div>
+                    </div>
+              </div>
+            </div>
+              <div class="form-actions">
+                  <div class="row">
+                      <div class="col-md-offset-3 col-md-9">
+                          <button type="submit" class="btn green">Add Product</button>
+                          <button type="button" class="btn default">Cancel</button>
+                      </div>
+                  </div>
+              </div>
+           </form> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

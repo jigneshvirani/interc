@@ -1,0 +1,145 @@
+<style type="text/css">
+  .dataTables_length{
+    margin-top: 10px;
+  }
+</style>
+<div class="">
+  <!--Start leads inner-menu seaction-->
+  <div class="page-inner-menu">
+    <ul class="list-inline list-unstyle ">
+      <li ng-class="{'active': isActive(['/classified'])}">
+        <a href="manage/classified">DASHBOARD > PRODUCTS > EDIT PRODUCT </a>
+      </li>
+    </ul>
+  </div>
+  <!--End leads inner-menu seaction-->
+  <div class="clearfix"></div>
+  <!--Start Active lead seaction-->
+  <div class="row">
+    <div class="col-sm-12 margin-top-20">
+      <div class="portlet light bordered content-filter">
+        <div class="portlet-title">
+          <div class="caption">
+            <span class="caption-subject bold uppercase ">
+              EDIT PRODUCT
+            </span>
+          </div>
+        </div>
+        <div class="portlet-body">
+        	<div class="row">
+           <form class="form form-horizontal" method="post" id="product-edit">
+            <input type="hidden" name="id" value="[[editProduct.id]]">
+            <div class="form-body">
+              <div class="form-group form-md-line-input form-md-floating-label">
+                  <label class="col-md-3 control-label">NAME :</label>
+                      <div class="col-md-4">
+                      <input type="text" class="form-control spinner" name="name" placeholder="Name" value="[[editProduct.name]]"> </div>
+              </div>
+              <div class="form-group form-md-line-input">
+                  <label class="col-md-3 control-label">UPC CODE :</label>
+                      <div class="col-md-4">
+                      <input type="text" class="form-control spinner" name="upc_code" placeholder="UPC code" value="[[editProduct.upc_code]]"> </div>
+              </div>
+              <div class="form-group">
+                    <label class="control-label col-md-3">PICTURE :</label>
+                        <div class="col-md-9">
+                          <div class="fileinput fileinput-new" data-provides="fileinput">
+                              <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                  <img src="resources/upload/product/[[editProduct.picture]]" alt=""> </div>
+                                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-height: 250px; line-height: 10px;">
+                                    </div>
+                                <div>
+                                <span class="btn default btn-file">
+                                  <span class="fileinput-new"> Select image </span>
+                                  <span class="fileinput-exists"> Change </span>
+                                  <input type="hidden" value="" name="..."><input type="file" name="file" accept="image/*"> </span>
+                                  <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput" style=""> Remove </a>
+                                </div>
+                          </div>
+                        </div>
+              </div>
+              <div class="form-group form-md-line-input">
+                  <label class="col-md-3 control-label">HAIR STYLE:</label>
+                      <div class="col-md-4">
+                        <div class="md-checkbox-list">
+                          <div class="md-checkbox">
+                              <input type="checkbox" id="hair_1" class="md-check" name="hair_style[1]" ng-checked="editProduct.attributes.hair_l.indexOf(1) == 0" value="1">
+                                   <label for="hair_1"><span class="inc"></span><span class="check"></span> <span class="box"></span> None </label>
+                          </div>
+                          <div class="md-checkbox">
+                              <input type="checkbox" id="checkbox2" class="md-check" name="hair_style[2]" ng-checked="editProduct.attributes.hair_l.indexOf(2) >= 0" value="1">
+                                   <label for="checkbox2"><span class="inc"></span><span class="check"></span> <span class="box"></span> Curl </label>
+                          </div>
+                        </div>
+                    </div>
+              </div>
+              <div class="form-group form-md-line-input">
+                  <label class="col-md-3 control-label">TREATMENTS:</label>
+                      <div class="col-md-4">
+                         <div class="md-checkbox-list">
+                          <div class="md-checkbox">
+                              <input type="checkbox" id="checkbox3" class="md-check" name="chemical[1]" ng-checked="editProduct.attributes.hair_c.indexOf(1) == 0" value="1">
+                                   <label for="checkbox3"><span class="inc"></span><span class="check"></span> <span class="box"></span> None </label>
+                          </div>
+                          <div class="md-checkbox">
+                              <input type="checkbox" id="checkbox4" class="md-check" name="chemical[2]" ng-checked="editProduct.attributes.hair_c.indexOf(2) >= 0" value="1">
+                                   <label for="checkbox4"><span class="inc"></span><span class="check"></span> <span class="box"></span> Color </label>
+                          </div>
+                          <div class="md-checkbox">
+                              <input type="checkbox" id="checkbox5" class="md-check" name="chemical[3]" ng-checked="editProduct.attributes.hair_c.indexOf(3) >= 0" value="1">
+                                   <label for="checkbox5"><span class="inc"></span><span class="check"></span> <span class="box"></span> Perm </label>
+                          </div>
+                          <div class="md-checkbox">
+                              <input type="checkbox" id="checkbox6" class="md-check" name="chemical[4]" ng-checked="editProduct.attributes.hair_c.indexOf(4) >= 0" value="1">
+                                   <label for="checkbox6"><span class="inc"></span><span class="check"></span> <span class="box"></span> Smoothing </label>
+                          </div>
+                        </div>
+                      </div>
+              </div>
+              <div class="form-group form-md-line-input">
+                  <label class="col-md-3 control-label">TEXTURE:</label>
+                     <div class="col-md-4">
+                       <div class="md-checkbox-list">
+                          <div class="md-checkbox">
+                              <input type="checkbox" id="checkbox7" class="md-check" name="texture[1]" ng-checked="editProduct.attributes.texture_c.indexOf(1) == 0" value="1">
+                                   <label for="checkbox7"><span class="inc"></span><span class="check"></span> <span class="box"></span> Mass </label>
+                          </div>
+                          <div class="md-checkbox">
+                              <input type="checkbox" id="checkbox8" class="md-check" name="texture[2]" ng-checked="editProduct.attributes.texture_c.indexOf(2) >= 0" value="1">
+                                   <label for="checkbox8"><span class="inc"></span><span class="check"></span> <span class="box"></span> Ethnic </label>
+                          </div>
+                        </div>
+                     </div>
+              </div>
+              <div class="form-group form-md-line-input">
+                  <label class="col-md-3 control-label">INGREDIENTS:</label>
+                      <div class="col-md-4">
+                        <div class="md-checkbox-list">
+                          <div class="md-checkbox">
+                              <input type="checkbox" id="checkbox13" class="md-check" name="ingredients[1]"  ng-checked="editProduct.attributes.ingredients_c.indexOf(1) == 0" value="1">
+                                   <label for="checkbox13"><span class="inc"></span><span class="check"></span> <span class="box"></span> Synthetic </label>
+                          </div>
+                          <div class="md-checkbox">
+                              <input type="checkbox" id="checkbox14" class="md-check" name="ingredients[2]"  ng-checked="editProduct.attributes.ingredients_c.indexOf(2) >= 0" value="1">
+                                   <label for="checkbox14"><span class="inc"></span><span class="check"></span> <span class="box"></span> Plant </label>
+                          </div>
+                        </div>
+                    </div>
+              </div>
+             
+            </div>
+              <div class="form-actions">
+                  <div class="row">
+                      <div class="col-md-offset-3 col-md-9">
+                          <button type="submit" class="btn green">Update Product</button>
+                          <button type="button" class="btn default">Cancel</button>
+                      </div>
+                  </div>
+              </div>
+           </form> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
