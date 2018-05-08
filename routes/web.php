@@ -11,7 +11,7 @@
 |
 */
 
-
+echo 'sdf';die;
 Route::get('/manage', function () {
     return redirect('manage/login');
 });
