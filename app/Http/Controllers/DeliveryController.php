@@ -30,7 +30,7 @@ use Carbon\Carbon;
 class DeliveryController extends Controller
 {
 	// To create new job. 
-    public function New(Request $request){
+    public function Newjob(Request $request){
 
     	//global declaration
 		$ResponseData['success'] =  false;
@@ -268,6 +268,69 @@ class DeliveryController extends Controller
 				$updateJob = Delivery::find($request->get('job_id'));
 				$updateJob->driver_id = $request->get('driver_id');
 				$updateJob->status = 2;
+				$updateJob->save();
+
+				// Print the response.
+				$ResponseData['data'] = array();
+				$ResponseData['success'] = true;
+				$ResponseData['message'] = trans('message.message.GENERAL_SUCCESS');
+			}
+		} else {
+            //print error response
+			$ResponseData['success'] =  false;
+			$ResponseData['message'] = trans('message.message.INVALID_PARAMS');
+			$ResponseData['data'] = new stdClass();
+		}
+
+		//print response.
+		return Response::json($ResponseData, 200, [], JSON_NUMERIC_CHECK);
+	}
+
+	// To update job status
+	public function Updatejobstatus(Request $request){
+
+		//global declaration
+		$ResponseData['success'] =  false;
+		$ResponseData = array();
+		
+		//get data from request and process
+		$PostData = Input::all();
+
+		if (isset($PostData) && !empty($PostData)) {
+
+            //make validator for facebook
+			$ValidateFacebook = Validator::make(array(
+				'driver_id' => Input::get('driver_id'),
+				'job_id' => Input::get('job_id'),
+				'status' => Input::get('status'),
+				'lang' => Input::get('lang'),
+			), array(
+				'driver_id' => 'required',
+				'job_id' => 'required',
+				'lang' => 'required',
+				'status' => 'required'
+			));
+			
+			if ($ValidateFacebook->fails()) {
+				$ResponseData['message'] = $ValidateFacebook->messages()->first();
+				$ResponseData['success'] =  false;
+				$ResponseData['data'] = new stdClass();
+			}else {
+				// To set the local language.
+				App::setLocale($request->get('lang'));
+
+				//  If status is 3 then picked up.
+				// If status is 4 then dropped off
+				$updateJob = Delivery::find($request->get('job_id'));
+				$updateJob->driver_id = $request->get('driver_id');
+
+				if($PostData['status'] == 3){
+					$updateJob->picked_up_at = date('Y-m-d H:i:s');	
+				}
+				if($PostData['status'] == 4){
+					$updateJob->droped_at = date('Y-m-d H:i:s');	
+				}
+				$updateJob->status = $request->get('status');
 				$updateJob->save();
 
 				// Print the response.

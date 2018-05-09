@@ -11,7 +11,7 @@
 |
 */
 
-echo 'sdf';die;
+
 Route::get('/manage', function () {
     return redirect('manage/login');
 });
@@ -63,8 +63,11 @@ Route::group(['prefix' => 'manage'], function () {
     Route::any('updatepassword', 'AdminloginController@Updatepassword');
     Route::any('getadmininfo', 'AdminloginController@Getadmininfo');
     
+
+
 });
 
+// All api routes here
 Route::group(['prefix' => 'api'], function () {
 
     // User signup, login, forgot pasword, reset password
@@ -73,15 +76,14 @@ Route::group(['prefix' => 'api'], function () {
     Route::any('logingl', 'UserController@Dologingoogle');
     Route::any('dosignup', 'UserController@Dosignup');
     Route::get('forgotpasswordapp', 'UserController@Forgotpassword');
-    // Driver routes
-    //Route::any('');
-
-    //Delivery routes
-    Route::any('createdelivery', 'DeliveryController@New');
+    
+    // Delivery routes
+    Route::any('createdelivery', 'DeliveryController@Newjobs');
     Route::any('jobhistory', 'DeliveryController@Jobhistory');
     Route::any('newjobs', 'DeliveryController@Newsjobs');
-    Route::any('acceptjob', 'DeliveryController@Acceptjob');
-
+    Route::any('acceptjob', 'DeliveryController@Acceptjob'); // Accept the job
+    Route::any('updatejobstatus', 'DeliveryController@Updatejobstatus'); //update job status
+    //Route::any('updatejobstatus', 'DeliveryController@');
 
 });
 
@@ -91,10 +93,13 @@ Route::group(['prefix' => 'driver'], function () {
     Route::any('dosignup', 'DriverController@Dosignup');
     Route::any('dologin', 'DriverController@Dologin');
     Route::any('currentjobs', 'DriverController@Currentjobs');
+    Route::any('jobhistory', 'DriverController@Jobhistory');
+    Route::any('updateprofile', 'DriverController@Updateprofile');
+    Route::any('addrating', 'DriverController@Addratings');
+
 
 });
 
 Route::get('/', function () {
     return view('welcome');
 });
-

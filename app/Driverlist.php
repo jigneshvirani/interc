@@ -14,11 +14,11 @@ class Driverlist extends Model
      */
     protected $fillable = [ 
 
-    	'name', 'value','status','created_at'
+    	'name', 'email', 'mo_no', 'profile_pic', 'password','status','created_at'
     ];
     
     //Define the table name
-    protected $table = 'settings';
+    protected $table = 'drivers';
 
 
     public static function GetProfile($UserId){

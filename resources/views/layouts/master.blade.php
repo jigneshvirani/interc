@@ -63,7 +63,7 @@
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
                     <a href="manage/dashboard"> 
-                        INTERCITY
+                        Rate My Day
                       <!-- <img src="resources/assets/images/white_logo_transparent_new.png" alt="logo" class="logo-default" style="height: 65px; margin: 3px 49px 0;" /> -->
                     </a>
                 </div>

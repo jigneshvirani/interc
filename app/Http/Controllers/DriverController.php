@@ -22,14 +22,15 @@ use App\Drivers;
 use App\Driverlist;
 use App\Delivery;
 use DB;
-use App;
 use Session;
+use App;
 use DateTime;
-use Carbon\Carbon;;
+use Carbon\Carbon;
+
+
 class DriverController extends Controller
 {
-    //
-
+    
 	// Do login for driver
     public function Dologin(Request $request){
 
@@ -194,12 +195,19 @@ class DriverController extends Controller
 			}else {
 				
 				App::setLocale($request->get('lang'));
-				
 				// To get current delivery.
-				$getCurrentJobs = Delivery::select('*')->where('driver_id', $request->get('driver_id'))->where()->get()->toArray();
-
-
-
+				$getCurrentJobs = Delivery::select('*')->where('driver_id', $request->get('driver_id'))->where('status', 2)->get()->toArray();
+				
+				// To get current jobs.
+				if($getCurrentJobs){
+					$ResponseData['success']= true;
+					$ResponseData['message']= trans('message.general.GENERAL_SUCCESS');
+					$ResponseData['data'] = $getCurrentJobs;
+				}else{
+					$ResponseData['success'] = false;
+					$ResponseData['data'] = array();
+					$ResponseData['message'] = trans('message.message.NO_DATA_FOUND');
+				}
 			}
 		} else {
 			//print error response
@@ -210,6 +218,124 @@ class DriverController extends Controller
 		
 		//print response.
 		return Response::json($ResponseData, 200, [], JSON_NUMERIC_CHECK);
+    }
+
+    // To get the job history
+    public function Jobhistory(Request $request){
+
+    	//global declaration
+		$ResponseData['success'] =  false;
+		//$ResponseData['message'] = Config('message.message.GENERAL_ERROR');
+		$ResponseData = array();
+		
+		//get data from request and process
+		$PostData = Input::all();
+
+		if (isset($PostData) && !empty($PostData)) {
+
+            //make validator for facebook
+			$ValidateFacebook = Validator::make(array(
+				'driver_id' => Input::get('driver_id'),
+				'lang' => Input::get('lang')
+			), array(
+				'driver_id' => 'required',
+				'lang' => 'required'
+			));
+			
+			if ($ValidateFacebook->fails()) {
+				$ResponseData['message'] = $ValidateFacebook->messages()->first();
+				$ResponseData['success'] =  false;
+				$ResponseData['data'] = new stdClass();
+			}else {
+				
+				App::setLocale($request->get('lang'));
+				// To get current delivery.
+				$getCurrentJobs = Delivery::select('*')->where('driver_id', $request->get('driver_id'))->where('status', 4)->get()->toArray();
+				
+				// To get current jobs.
+				if($getCurrentJobs){
+					$ResponseData['success']= true;
+					$ResponseData['message']= trans('message.general.GENERAL_SUCCESS');
+					$ResponseData['data'] = $getCurrentJobs;
+				}else{
+					$ResponseData['success'] = false;
+					$ResponseData['data'] = array();
+					$ResponseData['message'] = trans('message.message.NO_DATA_FOUND');
+				}
+			}
+		} else {
+			//print error response
+			$ResponseData['success'] =  false;
+			$ResponseData['message'] = trans('message.message.GENERAL_ERROR');
+			$ResponseData['data'] = new stdClass();
+		}
+		
+		//print response.
+		return Response::json($ResponseData, 200, [], JSON_NUMERIC_CHECK);
+
+    }
+
+    // To update the profile.
+    public function Updateprofile(Request $request){
+
+    	//global declaration
+		$ResponseData['success'] =  false;
+		$ResponseData = array();
+		
+		//get data from request and process
+		$PostData = Input::all();
+
+		if (isset($PostData) && !empty($PostData)) {
+
+            //make validator for facebook
+			$ValidateFacebook = Validator::make(array(
+				'driver_id' => Input::get('driver_id'),
+				'mo_no' => Input::get('mo_no'),
+				'name' => Input::get('name'),
+				'email' => Input::get('email'),
+				'lang' => Input::get('lang')
+			), array(
+				'driver_id' => 'required',
+				'mo_no' => 'required',
+				'name' => 'required',
+				'email' => 'required',
+				'lang' => 'required'
+			));
+			
+			if ($ValidateFacebook->fails()) {
+				$ResponseData['message'] = $ValidateFacebook->messages()->first();
+				$ResponseData['success'] =  false;
+				$ResponseData['data'] = new stdClass();
+			}else {
+
+				// To set the locale lang.
+				App::setLocale($request->get('lang'));
+				
+				$updateDriverProfile = Driverlist::find($PostData['driver_id']);
+				$updateDriverProfile->name = $PostData['name'];
+				$updateDriverProfile->mo_no = $PostData['mo_no'];
+				$updateDriverProfile->email = $PostData['email'];
+				$updateDriverProfile->save();
+
+				$ResponseData['success'] = true;
+				$ResponseData['message'] = trans('message.message.GENERAL_SUCCESS');
+				$ResponseData['data'] = array();
+
+			}
+		} else {
+			//print error response
+			$ResponseData['success'] =  false;
+			$ResponseData['message'] = trans('message.message.GENERAL_ERROR');
+			$ResponseData['data'] = new stdClass();
+		}
+
+		//print response.
+		return Response::json($ResponseData, 200, [], JSON_NUMERIC_CHECK);
+    }
+
+    // To get the earnings of the driver.
+    public function Getearnings(Request $request){
+
     }
 
 }
