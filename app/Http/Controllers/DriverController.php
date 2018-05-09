@@ -21,6 +21,7 @@ use stdClass;
 use App\Drivers;
 use App\Driverlist;
 use App\Delivery;
+use App\Ratings;
 use DB;
 use Session;
 use App;
@@ -335,7 +336,72 @@ class DriverController extends Controller
 
     // To get the earnings of the driver.
     public function Getearnings(Request $request){
+			
 
-    }
+
+
+	}
+
+    // Add ratings for the drivers
+    public function Addratings(Request $request){
+
+    	//global declaration
+		$ResponseData['success'] =  false;
+		$ResponseData = array();
+		
+		//get data from request and process
+		$PostData = Input::all();
+
+		if(isset($PostData) && !empty($PostData)) {
+
+            //make validator for facebook
+			$ValidateFacebook = Validator::make(array(
+				'driver_id' => Input::get('driver_id'),
+				'job_id' => Input::get('job_id'),
+				'rating' => Input::get('rating'),
+				'lang' => Input::get('lang'),
+				'text' => Input::get('text')
+			), array(
+				'driver_id' => 'required',
+				'job_id' => 'required',
+				'rating' => 'required',
+				'text' => 'required',
+				'lang' => 'required'
+			));
+			
+			if ($ValidateFacebook->fails()) {
+				$ResponseData['message'] = $ValidateFacebook->messages()->first();
+				$ResponseData['success'] =  false;
+				$ResponseData['data'] = new stdClass();
+			}else {
+				
+				// To set the locale lang.
+				App::setLocale($request->get('lang'));
+
+				$rating = new Ratings();
+				$rating->job_id = $request->get('job_id');
+				$rating->driver_id = $request->get('driver_id');
+				$rating->rating = $request->get('rating');
+				$rating->status = 1;
+				$rating->text = $request->get('text');
+				$rating->created_at = date('Y-m-d H:i:s');
+				$rating->save();
+
+				
+				$ResponseData['success'] = true;
+				$ResponseData['message'] = trans('message.message.GENERAL_SUCCESS');
+				$ResponseData['data'] = array();
+			}
+		} else {
+			//print error response
+			$ResponseData['success'] =  false;
+			$ResponseData['message'] = trans('message.message.GENERAL_ERROR');
+			$ResponseData['data'] = new stdClass();
+		}
+
+		//print response.
+		return Response::json($ResponseData, 200, [], JSON_NUMERIC_CHECK);
+	}
+
 
 }
